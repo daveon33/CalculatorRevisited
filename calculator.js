@@ -28,11 +28,34 @@ function division(firstNumber, secondNumber) {
   return quotient;
 }
 
+
+// Simple tests
+
 console.log(add(2, 5));
 console.log(add(10, -2));
 console.log(substract(5, 4));
 console.log(substract(-3, 2));
 console.log(multiply(2, 10));
 console.log(division(10, 2));
+
+// Variables that will store the data that is going to be used by the arithmetic funcions. These will update the display of the calculator later on
+
+let firstNum;
+let secondNum;
+let operator;
+
+// The function operate will take the values of the previous variables and call one of the operation functions above
+
+function operate(firstNum, secondNum, operator) {
+  if(operator == "+") {
+    return add(firstNum, secondNum);
+  } else if(operator == "-") {
+    return substract(firstNum, secondNum);
+  } else if(operator == "*") {
+    return multiply(firstNum, secondNum);
+  } else if(operator == "/") {
+    return division(firstNum, secondNum);
+  } else return "Syntax Error";
+}
 
 
