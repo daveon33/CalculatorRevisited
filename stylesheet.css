@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+}
+
+#calculatorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#consoleContainer {
+  width: 400px;
+  height: 600px;
+  background-color: black;
+  margin: 0 auto;
+}
+
