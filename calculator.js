@@ -58,4 +58,11 @@ function operate(firstNum, secondNum, operator) {
   } else return "Syntax Error";
 }
 
+// Function to target the display everytime a button is pressed
+
+let numberKey = document.querySelectorAll('.number');
+numberKey.forEach((numKey) => numKey.addEventListener('click', () => {
+  alert('impressed');
+}));
+
 

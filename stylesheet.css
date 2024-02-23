@@ -17,6 +17,10 @@
 }
 
 #calculatorDisplay {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: white;
   width: 400px;
   height: 100px;
 }
