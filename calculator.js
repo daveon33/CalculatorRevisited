@@ -74,6 +74,7 @@ numberKey.forEach((numKey) => numKey.addEventListener('click', () => {
   displayValue = numKey.textContent;
   let displayDivContent = document.querySelector('#calculatorDisplay');
   displayDivContent.textContent = displayDivContent.textContent + displayValue;
+  displayValue = displayDivContent.textContent;
 }));
 
 let operatorKey = document.querySelectorAll('.operator');
@@ -81,6 +82,7 @@ operatorKey.forEach((opKey) => opKey.addEventListener('click', () => {
   displayValue = opKey.textContent;
   let displayDivContent = document.querySelector('#calculatorDisplay');
   displayDivContent.textContent = displayDivContent.textContent + displayValue;
+  displayValue = displayDivContent.textContent;
 }));
 
 let clearButton = document.querySelector('#clearBtn');
@@ -88,6 +90,35 @@ clearButton.addEventListener('click', () => {
   let displayDivContent = document.querySelector('#calculatorDisplay');
   displayDivContent.textContent = '';
 });
+
+let submitButton = document.querySelector('#submitBtn');
+submitButton.addEventListener('click', () => {
+
+  // First I define a RegEx to separate the contents of the operation
+  let firstOperatorRegex = '(\\d+)([+-x\/])(\\d+)';
+  let firstOperator = displayValue.match(firstOperatorRegex)[1];
+  let secondOperator = displayValue.match(firstOperatorRegex)[3];
+  let operation = displayValue.match(firstOperatorRegex)[2];
+
+  let answer = 0;
+  let displayedAnswer = document.querySelector('#calculatorDisplay');
+
+  if(operation == '+') {
+    answer = add(parseInt(firstOperator), parseInt(secondOperator));
+    displayedAnswer.textContent = answer;
+  } else if(operation == '-') {
+    answer = substract(parseInt(firstOperator), parseInt(secondOperator));
+    displayedAnswer.textContent = answer; 
+  } else if(operation == 'x') {
+    answer = multiply(parseInt(firstOperator), parseInt(secondOperator));
+    displayedAnswer.textContent = answer;
+  } else if(operation == '\/') {
+    answer = division(parseInt(firstOperator), parseInt(secondOperator));
+    displayedAnswer.textContent = answer;
+  } 
+  
+  
+})
 
 
 
