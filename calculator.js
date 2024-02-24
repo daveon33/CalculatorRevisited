@@ -60,9 +60,23 @@ function operate(firstNum, secondNum, operator) {
 
 // Function to target the display everytime a button is pressed
 
+let displayValue = 0;
+
+/*
+  What I'm understanding from the forEach loop is that first, the variable named numberKey is storing a nodelist with all of the divs that have the class number. Then the forEach loop is iterating and adding an event listener to all of these divs, in this scenario the click event is being added. After that the arrow function inside the event listener is storing the textContent of the div into the displayValue variable. This happens everytime the button is being pressed, thus the arrow functions is being called only after the button is pressed, and is not dependant on the forEach loop.
+
+  To populate the display I am targeting the text content and then appending the strings into the displayDivContent, this way I can keep adding numbers if the operation request a larger value, because otherwise everytime a button is pressed the calculator would reset the value to the current number.
+*/
+
+
 let numberKey = document.querySelectorAll('.number');
 numberKey.forEach((numKey) => numKey.addEventListener('click', () => {
-  alert('impressed');
+  displayValue = numKey.textContent;
+  let displayDivContent = document.querySelector('#calculatorDisplay');
+  displayDivContent.textContent = displayDivContent.textContent + displayValue;
 }));
+
+
+
 
 
