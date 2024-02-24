@@ -76,6 +76,19 @@ numberKey.forEach((numKey) => numKey.addEventListener('click', () => {
   displayDivContent.textContent = displayDivContent.textContent + displayValue;
 }));
 
+let operatorKey = document.querySelectorAll('.operator');
+operatorKey.forEach((opKey) => opKey.addEventListener('click', () => {
+  displayValue = opKey.textContent;
+  let displayDivContent = document.querySelector('#calculatorDisplay');
+  displayDivContent.textContent = displayDivContent.textContent + displayValue;
+}));
+
+let clearButton = document.querySelector('#clearBtn');
+clearButton.addEventListener('click', () => {
+  let displayDivContent = document.querySelector('#calculatorDisplay');
+  displayDivContent.textContent = '';
+});
+
 
 
 
