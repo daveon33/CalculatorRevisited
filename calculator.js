@@ -77,6 +77,8 @@ numberKey.forEach((numKey) => numKey.addEventListener('click', () => {
   displayValue = displayDivContent.textContent;
 }));
 
+
+// The chainOperationCounter helps to concatenate multiple operations, if an operatorKey has been pressed more than once it'll have the same behavior as the submit button
 let chainOperationCounter = 0;
 
 let operatorKey = document.querySelectorAll('.operator');
@@ -84,7 +86,7 @@ operatorKey.forEach((opKey) => opKey.addEventListener('click', () => {
   chainOperationCounter++;
 
   if(chainOperationCounter > 1) {
-    
+    submitMyNumbers();
   }
 
   displayValue = opKey.textContent;
@@ -97,6 +99,7 @@ let clearButton = document.querySelector('#clearBtn');
 clearButton.addEventListener('click', () => {
   let displayDivContent = document.querySelector('#calculatorDisplay');
   displayDivContent.textContent = '';
+  chainOperationCounter = 0;
 });
 
 
@@ -142,8 +145,6 @@ function submitMyNumbers() {
     answer = division(parseInt(firstOperator), parseInt(secondOperator));
     displayedAnswer.textContent = answer;
   }
-
-  chainOperationCounter = 0;
 }
 
 
