@@ -24,7 +24,7 @@ function multiply(firstNumber, secondNumber) {
 // Division --- This functions takes two numbers as arguments, then stores its division inside the variable quotient and returns it, for now division by zero its not being managed
 
 function division(firstNumber, secondNumber) {
-  let quotient = firstNumber / secondNumber;
+  let quotient = Math.round((firstNumber / secondNumber) * 100) / 100;
   return quotient;
 }
 
