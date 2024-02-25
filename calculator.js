@@ -83,6 +83,8 @@ numberKey.forEach((numKey) => numKey.addEventListener('click', () => {
 }));
 
 
+
+
 // The chainOperationCounter helps to concatenate multiple operations, if an operatorKey has been pressed more than once it'll have the same behavior as the submit button
 let chainOperationCounter = 0;
 
@@ -138,16 +140,16 @@ function submitMyNumbers() {
   let displayedAnswer = document.querySelector('#calculatorDisplay');
 
   if(operation == '+') {
-    answer = add(parseInt(firstOperator), parseInt(secondOperator));
+    answer = add(parseFloat(firstOperator), parseFloat(secondOperator));
     displayedAnswer.textContent = answer;
   } else if(operation == '-') {
-    answer = substract(parseInt(firstOperator), parseInt(secondOperator));
+    answer = substract(parseFloat(firstOperator), parseFloat(secondOperator));
     displayedAnswer.textContent = answer; 
   } else if(operation == 'x') {
-    answer = multiply(parseInt(firstOperator), parseInt(secondOperator));
+    answer = multiply(parseFloat(firstOperator), parseFloat(secondOperator));
     displayedAnswer.textContent = answer;
   } else if(operation == '\/') {
-    answer = division(parseInt(firstOperator), parseInt(secondOperator));
+    answer = division(parseFloat(firstOperator), parseFloat(secondOperator));
     displayedAnswer.textContent = answer;
   }
 }
