@@ -77,8 +77,16 @@ numberKey.forEach((numKey) => numKey.addEventListener('click', () => {
   displayValue = displayDivContent.textContent;
 }));
 
+let chainOperationCounter = 0;
+
 let operatorKey = document.querySelectorAll('.operator');
 operatorKey.forEach((opKey) => opKey.addEventListener('click', () => {
+  chainOperationCounter++;
+
+  if(chainOperationCounter > 1) {
+    
+  }
+
   displayValue = opKey.textContent;
   let displayDivContent = document.querySelector('#calculatorDisplay');
   displayDivContent.textContent = displayDivContent.textContent + displayValue;
@@ -91,9 +99,27 @@ clearButton.addEventListener('click', () => {
   displayDivContent.textContent = '';
 });
 
+
+/* The submit button is very important in the overall functionality of the calculator, the following piece of code
+allows the user to evaluate a pair of numbers to get the result, discriminating the operation to be used based
+on the symbol that the user pressed. For this I prefered to use RegEx since it seems like an appropiate moment  to
+practice this and also separate all the pieces of data that I need from the input. The 'firstOperatorRegex' is capturing
+the three pieces of information we need in order to make the calculator works, these results are being stored in an array,
+have in mind that this array has in the 0 position the value of the whole match, for example if I enter 12+4, the 0 position
+would return 12+4.
+
+The following functionality is basic, I'm just using the retrieved symbol from the input to call the corresponding arithmetic
+function defined above.
+*/
+
 let submitButton = document.querySelector('#submitBtn');
 submitButton.addEventListener('click', () => {
 
+  submitMyNumbers();
+
+});
+
+function submitMyNumbers() {
   // First I define a RegEx to separate the contents of the operation
   let firstOperatorRegex = '(\\d+)([+-x\/])(\\d+)';
   let firstOperator = displayValue.match(firstOperatorRegex)[1];
@@ -115,10 +141,10 @@ submitButton.addEventListener('click', () => {
   } else if(operation == '\/') {
     answer = division(parseInt(firstOperator), parseInt(secondOperator));
     displayedAnswer.textContent = answer;
-  } 
-  
-  
-})
+  }
+
+  chainOperationCounter = 0;
+}
 
 
 
