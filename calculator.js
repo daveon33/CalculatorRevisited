@@ -24,6 +24,11 @@ function multiply(firstNumber, secondNumber) {
 // Division --- This functions takes two numbers as arguments, then stores its division inside the variable quotient and returns it, for now division by zero its not being managed
 
 function division(firstNumber, secondNumber) {
+
+  if(secondNumber == 0) {
+    return 'That\'s crazy!';
+  }
+
   let quotient = Math.round((firstNumber / secondNumber) * 100) / 100;
   return quotient;
 }
