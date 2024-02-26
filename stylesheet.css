@@ -50,6 +50,12 @@ body {
   align-items: center;
 }
 
+.button:hover {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Agregar una sombra */
+  transform: scale(1.1); /* Aumentar el tamaño */
+  border-radius: 0.2em;
+}
+
 .leftNumber {
   background-color: #fde4f2;
 }
@@ -64,10 +70,24 @@ body {
 
 .operator {
   background-color: #cc397b;
+  color: white;
 }
 
 #submitBtn {
   background-color: #e2062c;
+  color: white;
+}
+
+#division {
+  font-size: 0.7em;
+}
+
+#multiply {
+  font-size: 0.8em;
+}
+
+#substraction {
+  font-size: 1.3em;
 }
 
 
