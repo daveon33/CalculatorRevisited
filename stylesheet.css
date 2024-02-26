@@ -2,6 +2,12 @@
   margin: 0;
 }
 
+body {
+  background-image: linear-gradient(to right, purple, cyan);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 0.7cm;
+}
+
 #calculatorContainer {
   display: flex;
   align-items: center;
@@ -14,6 +20,7 @@
   width: 400px;
   height: 600px;
   background-color: black;
+  border-radius: 5px;
 }
 
 #calculatorDisplay {
@@ -38,11 +45,29 @@
   display: flex;
   width: 100px;
   height: 100px;
-  border-color: white;
   margin-bottom: 0;
   justify-content: center;
   align-items: center;
 }
 
+.leftNumber {
+  background-color: #fde4f2;
+}
+
+.middleRow {
+  background-color: #e3cdd9;
+}
+
+.rightNumber {
+  background-color: #cab6c1;
+}
+
+.operator {
+  background-color: #cc397b;
+}
+
+#submitBtn {
+  background-color: #e2062c;
+}
 
 
