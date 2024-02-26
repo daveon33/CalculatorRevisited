@@ -154,6 +154,13 @@ function submitMyNumbers() {
   }
 }
 
+let eraserButton = document.querySelector('#eraser');
+eraserButton.addEventListener('click', () => {
+  let currentDisplayValue = document.querySelector('#calculatorDisplay');
+  let newStringToDisplay = currentDisplayValue.textContent.slice(0, -1);
+  currentDisplayValue.textContent = newStringToDisplay;
+});
+
 
 
 
