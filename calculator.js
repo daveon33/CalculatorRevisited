@@ -3,21 +3,21 @@
 // Addition --- This function takes two numbers as arguments, then stores its addition inside the variable sum and returns it
 
 function add(firstNumber, secondNumber) {
-  let sum = firstNumber + secondNumber;
+  let sum = Math.round((firstNumber + secondNumber) * 100) / 100;
   return sum;
 }
 
 // Substraction --- This function takes two numbers as arguments, then stores its substractions inside the variable substraction and returns it
 
 function substract(firstNumber, secondNumber) {
-  let substraction = firstNumber - secondNumber;
+  let substraction = Math.round((firstNumber - secondNumber) * 100) / 100;
   return substraction;
 }
 
 // Multiply --- This function takes two numbers as arguments, then stores its product inside the variable product and returns it
 
 function multiply(firstNumber, secondNumber) {
-  let product = firstNumber * secondNumber;
+  let product = Math.round((firstNumber * secondNumber) * 100) / 100;
   return product;
 }
 
@@ -34,14 +34,6 @@ function division(firstNumber, secondNumber) {
 }
 
 
-// Simple tests
-
-console.log(add(2, 5));
-console.log(add(10, -2));
-console.log(substract(5, 4));
-console.log(substract(-3, 2));
-console.log(multiply(2, 10));
-console.log(division(10, 2));
 
 // Variables that will store the data that is going to be used by the arithmetic funcions. These will update the display of the calculator later on
 
@@ -131,10 +123,21 @@ submitButton.addEventListener('click', () => {
 
 function submitMyNumbers() {
   // First I define a RegEx to separate the contents of the operation
-  let firstOperatorRegex = '(\\d+)([+-x\/])(\\d+)';
-  let firstOperator = displayValue.match(firstOperatorRegex)[1];
-  let secondOperator = displayValue.match(firstOperatorRegex)[3];
-  let operation = displayValue.match(firstOperatorRegex)[2];
+  //let firstOperatorRegex = '(\\d+)([+-x\/])(\\d+)';
+  let finalRegex = /((\d+(\.\d+)?)|(\.\d+))([+\-x\/])((\d+(\.\d+)?)|(\.\d+))/;
+  // let firstOperator = displayValue.match(firstOperatorRegex)[1];
+  // let secondOperator = displayValue.match(firstOperatorRegex)[3];
+  // let operation = displayValue.match(firstOperatorRegex)[2];
+
+  console.log(displayValue);
+  let match = finalRegex.exec(displayValue);
+  let firstOperator = match[1];
+  let operation = match[5];
+  let secondOperator = match[6];
+
+  console.log(firstOperator);
+  console.log(operation);
+  console.log(secondOperator);
 
   let answer = 0;
   let displayedAnswer = document.querySelector('#calculatorDisplay');
@@ -160,6 +163,15 @@ eraserButton.addEventListener('click', () => {
   let newStringToDisplay = currentDisplayValue.textContent.slice(0, -1);
   currentDisplayValue.textContent = newStringToDisplay;
 });
+
+let decimalButton = document.querySelector('#newDecimal');
+decimalButton.addEventListener('click', () => {
+  displayValue = decimalButton.textContent;
+  let displayDivContent = document.querySelector('#calculatorDisplay');
+  displayDivContent.textContent = displayDivContent.textContent + displayValue;
+  displayValue = displayDivContent.textContent;
+});
+
 
 
 
